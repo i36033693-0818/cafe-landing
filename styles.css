@@ -1,0 +1,427 @@
+:root {
+  --bg: #faf6f0;
+  --surface: #ffffff;
+  --text: #2b211b;
+  --muted: #6f6258;
+  --brand: #7a4a2b;
+  --brand-dark: #5c3620;
+  --accent: #e8d5bf;
+  --line: #e6dccf;
+  --radius: 16px;
+  --max: 1080px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Noto Sans KR", system-ui, sans-serif;
+  line-height: 1.7;
+}
+
+h1, h2, h3, .logo {
+  font-family: "Gowun Batang", serif;
+  line-height: 1.3;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: rgba(250, 246, 240, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.logo {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--brand-dark);
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  gap: 28px;
+}
+
+.site-nav a {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.site-nav a:hover {
+  color: var(--brand);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+}
+
+/* Layout */
+section {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 72px 24px;
+}
+
+section > h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Hero */
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 40px;
+  padding-top: 88px;
+  padding-bottom: 88px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--brand);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+}
+
+.lead {
+  margin: 20px 0 32px;
+  max-width: 30em;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 999px;
+  border: 1px solid var(--brand);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-primary {
+  background: var(--brand);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--brand-dark);
+}
+
+.btn-ghost {
+  color: var(--brand);
+}
+
+.btn-ghost:hover {
+  background: var(--accent);
+}
+
+.hero-art svg {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.art-bg {
+  fill: var(--accent);
+}
+
+.art-cup {
+  fill: var(--surface);
+  stroke: var(--brand-dark);
+  stroke-width: 4;
+  stroke-linejoin: round;
+}
+
+.art-handle,
+.art-steam {
+  fill: none;
+  stroke: var(--brand-dark);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.art-steam {
+  opacity: 0.6;
+  animation: steam 3s ease-in-out infinite;
+}
+
+.art-saucer {
+  fill: var(--brand-dark);
+}
+
+@keyframes steam {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(-6px); opacity: 0.25; }
+}
+
+/* About */
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.feature {
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.feature-icon {
+  font-size: 1.8rem;
+}
+
+.feature h3 {
+  margin: 10px 0 8px;
+  font-size: 1.2rem;
+}
+
+.feature p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Menu */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.menu-group {
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.menu-group h3 {
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 2px solid var(--accent);
+  color: var(--brand-dark);
+  font-size: 1.25rem;
+}
+
+.menu-group ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-group li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 0;
+}
+
+.price {
+  color: var(--brand);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.menu-note {
+  margin: 24px 0 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Visit */
+.visit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.info {
+  margin: 0;
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.info div + div {
+  margin-top: 20px;
+}
+
+.info dt {
+  color: var(--brand);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.info dd {
+  margin: 4px 0 0;
+}
+
+.hours-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+  padding: 28px;
+  background: var(--brand-dark);
+  color: #fff;
+  border-radius: var(--radius);
+}
+
+.hours-card p {
+  margin: 0;
+}
+
+.hours-card .status {
+  font-family: "Gowun Batang", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.hours-card .btn {
+  margin-top: 8px;
+  background: #fff;
+  border-color: #fff;
+  color: var(--brand-dark);
+}
+
+.hours-card .btn:hover {
+  background: var(--accent);
+}
+
+/* Footer */
+.site-footer {
+  padding: 28px 24px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .site-nav.open {
+    display: flex;
+  }
+
+  .site-nav a {
+    padding: 14px 24px;
+  }
+
+  section {
+    padding: 56px 16px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 48px;
+    padding-bottom: 56px;
+    text-align: center;
+  }
+
+  .lead {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-art {
+    order: -1;
+  }
+
+  .hero-art svg {
+    max-width: 220px;
+  }
+
+  .features,
+  .menu-grid,
+  .visit-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .art-steam {
+    animation: none;
+  }
+}
